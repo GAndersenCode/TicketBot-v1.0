@@ -1,4 +1,4 @@
-const discord = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = {
     event: "messageReactionAdd",
@@ -38,7 +38,7 @@ module.exports = {
                             },
                         ]
                     });
-                    let firstEmbed = new discord.MessageEmbed()
+                    let firstEmbed = new MessageEmbed()
                         .setTitle(`Welcome to your support ticket!`)
                         .setDescription(`
                                 This is where you as private questions, that only admins can view.\n

@@ -1,6 +1,6 @@
-const discord = require('discord.js');
-const client = new discord.Client({ partials: ['MESSAGE', 'REACTION'] });
-client.commands = new discord.Collection();
+const { Collection, Client } = require('discord.js');
+const client = new Client({ partials: ['MESSAGE', 'REACTION'] });
+client.commands = new Collection();
 require('dotenv').config();
 const fs = require('fs');
 

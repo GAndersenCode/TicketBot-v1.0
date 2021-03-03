@@ -1,4 +1,3 @@
-const discord = require('discord.js');
 
 module.exports = {
     // we want a message event
