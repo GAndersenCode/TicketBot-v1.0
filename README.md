@@ -4,7 +4,7 @@ This code requires you to install two npm packages; discord.js and dotenv
 Just copy the code (clone the repo) and add a .env file to the root.
 There should be two variables to start with:
 
-token=YOUR_BOTS_TOKEN
+token=YOUR_BOTS_TOKEN\n
 prefix=YOUR_PREFIX
 
 ### `npm install`
