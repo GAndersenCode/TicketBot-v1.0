@@ -30,6 +30,9 @@ NB! This new support channel is created at the root level (top), and only the us
 When a user reacts to the message, a new channel is created and an embed is sent to the new channel.
 If the user reacts to the first embed with the ❌ emoji, the permissions are overwritten and the user looses access to the channel.
 Owner/admin can still see the channel.
+**NB! Because this simple bot doesn't use a database to store tickets, there is no way of checking if the ❌ was "added" to the first message of the channel.
+Because of this; if, at any point in the ticket channel, a reaction with the ❌ is added, the ticket is closed!
+This could easily be solved by using a database (like MySQL or MongoDB) but was out of the scope of this simple test.**
 
 
 That's about it for now, but I might add more later.
