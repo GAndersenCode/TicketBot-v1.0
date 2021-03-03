@@ -1,0 +1,15 @@
+{
+  "name": "ticketbot-v1.0",
+  "version": "1.0.0",
+  "description": "Simple ticketbot to create support tickets",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "GeirAndersen#0001",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0"
+  }
+}
