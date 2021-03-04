@@ -1,7 +1,6 @@
 # Getting started with TicketBot v1.0 - code
 
-This code requires you to install two npm packages; discord.js and dotenv
-Just copy the code (clone the repo) and add a .env file to the root.
+This code requires you to install three npm packages; discord.js, dotenv and mongoose. Just copy the code (clone the repo) and add a .env file to the root.
 There should be two variables to start with:
 
 token=YOUR_BOTS_TOKEN\
@@ -12,6 +11,8 @@ will install the packages required.
 
 Your bot needs some permissions:\
 VIEW_CHANNELS, SEND_MESSAGES, ADD_REACTIONS, MANAGE_CHANNELS, at least
+
+>For now there is no use of a database, but it will be based on MongoDB and mongoose. Mongoose is installed, but it's not used just yet.
 
 When you have the bot up and running, you first need to use the setup command in a channel.\
 This will create the channel in which people can react to a message to create their own support ticket.
