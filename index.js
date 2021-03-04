@@ -8,28 +8,31 @@ const prefix = process.env.prefix;
 
 const eventFiles = fs.readdirSync('./events/').filter(file => file.endsWith('.js'));
 
-for (const file of eventFiles) {
-    const eventFunction = require(`./events/${file}`);
+async function BootUp() {
+    for (const file of eventFiles) {
+        const eventFunction = require(`./events/${file}`);
 
-    if (eventFunction.disabled) return;
+        if (eventFunction.disabled) return;
 
-    const event = eventFunction.event || file.split('.')[0];
-    const emitter = (typeof eventFunction.emitter === 'string' ? client[eventFunction.emitter] : eventFunction.emitter) || client;
-    const once = eventFunction.once;
+        const event = eventFunction.event || file.split('.')[0];
+        const emitter = (typeof eventFunction.emitter === 'string' ? client[eventFunction.emitter] : eventFunction.emitter) || client;
+        const once = eventFunction.once;
 
-    try {
-        emitter[once ? 'once' : 'on'](event, (...args) => eventFunction.run(...args, client, prefix));
-    } catch (error) {
-        console.error(error.stack);
+        try {
+            await emitter[once ? 'once' : 'on'](event, (...args) => eventFunction.run(...args, client, prefix));
+        } catch (error) {
+            console.error(error.stack);
+        }
     }
-}
 
-const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
-for (const file of commandFiles) {
-    const command = require(`./commands/${file}`);
-    client.commands.set(command.name, command);
-}
+    const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
+    for (const file of commandFiles) {
+        const command = require(`./commands/${file}`);
+        client.commands.set(command.name, command);
+    }
+};
 
+BootUp();
 
 
 client.login(process.env.token);
