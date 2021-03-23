@@ -13,6 +13,7 @@ module.exports = {
         if (!reaction.message.guild) return;
 
         if (reaction.message.channel.id === process.env.tickets) {
+          let guild = reaction.message.guild;
             if (reaction.emoji.name === '📨') {
                 let chanName = user.username.toLowerCase() + '-ticket';
                 let channel = reaction.message.guild.channels.cache.some((ch) => ch.name === chanName);
@@ -33,8 +34,8 @@ module.exports = {
                                 allow: ['VIEW_CHANNEL', 'SEND_MESSAGES', 'ADD_REACTIONS'],
                             },
                             {
-                                id: client.user.id,
-                                allow: ['VIEW_CHANNEL', 'SEND_MESSAGES', 'ADD_REACTIONS'],
+                                id: guild.me.roles.highest,
+                                allow: ['VIEW_CHANNEL', 'SEND_MESSAGES', 'ADD_REACTIONS', 'MANAGE_CHANNELS'],
                             },
                         ]
                     });
@@ -57,7 +58,7 @@ module.exports = {
             if (ticket) {
                 if (reaction.message.channel.id === ticket.id) {
                     let ticketChan = reaction.message.guild.channels.cache.get(ticket.id);
-                    ticketChan.updateOverwrite(user.id, { VIEW_CHANNEL: false });
+                    await ticketChan.updateOverwrite(user.id, { deny: ['VIEW_CHANNEL', 'SEND_MESSAGE', 'ADD_REACTIONS'] });
                 }
             }
         }
