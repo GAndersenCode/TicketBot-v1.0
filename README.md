@@ -41,5 +41,6 @@ That's about it for now, but I might add more later.\
 Something like a transcript function and an easy way of deleting the channel once everything is concluded.\
 
 If you have questions, you can always get in touch with me on Discord.\
-Join us over a [Ansons Discord server: Code Ring](https://discord.gg/7f3ZQRekHM)\
+Join us over a [Ansons Discord server: Code Ring](https://discord.gg/7f3ZQRekHM)
+![Discord](https://img.shields.io/discord/582319490122121247)\
 My user is: GeirAndersen#0001
